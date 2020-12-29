@@ -1,6 +1,6 @@
 pub struct Config {
     pub port: String,
-    pub covid19_server_address: String,
+    pub covid19_service_address: String,
 }
 
 impl Config {
@@ -8,9 +8,9 @@ impl Config {
         Self {
             port: std::env::var("PORT")
                 .unwrap_or_else(|_| String::from("8080")),
-            covid19_server_address: std::env::var("COVID19_SERVER_ADDRESS")
-                .unwrap_or_else(|_| {
-                    println!("COVID19_SERVER_ADDRESS env var is missing");
+            covid19_service_address: std::env::var("COVID19_SERVICE_ADDRESS")
+                .unwrap_or_else(|e| {
+                    println!("COVID19_SERVICE_ADDRESS env var is missing {}", e);
                     std::process::exit(1)
                 }),
         }
