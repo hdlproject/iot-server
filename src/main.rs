@@ -16,7 +16,7 @@ async fn main() -> std::io::Result<()> {
             .service(health_check)
             .service(covid19::presenter::get)
     })
-        .bind(format!("127.0.0.1:{}", &config::CONFIG.port))?
+        .bind(format!("0.0.0.0:{}", &config::CONFIG.port))?
         .run()
         .await
 }
