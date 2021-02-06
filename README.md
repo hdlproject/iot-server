@@ -1,11 +1,11 @@
-rust-simple-webserver
+# Rust Simple Webserver
 
-# How to Run
-## Cargo
+## How to Run
+### Cargo
 ```shell script
 $ COVID19_SERVICE_ADDRESS=https://api.covid19api.com cargo run
 ```
-## Docker
+### Docker
 ```shell script
 $ docker build -t rust-simple-webserver .
 $ docker run \
