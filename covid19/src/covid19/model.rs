@@ -3,7 +3,6 @@ use actix_web::{
 };
 use openssl::ssl::{SslConnector, SslMethod};
 use serde::{Serialize, Deserialize};
-use serde_json::Result;
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Covid19Item {
@@ -42,7 +41,7 @@ impl Covid19Repo {
         }
     }
 
-    pub async fn get(&self, country: &str, status: &str, from: &str, to: &str) -> Result<Covid19Data> {
+    pub async fn get(&self, country: &str, status: &str, from: &str, to: &str) -> Covid19Data {
         let builder = SslConnector::builder(SslMethod::tls()).unwrap();
         let client = Client::builder()
             .connector(Connector::new().ssl(builder.build()).finish())
@@ -55,8 +54,8 @@ impl Covid19Repo {
             .unwrap();
         let payload_string = std::str::from_utf8(payload.as_ref()).unwrap();
 
-        let covid_19_data: Covid19Data = serde_json::from_str(payload_string)?;
+        let covid_19_data: Covid19Data = serde_json::from_str(payload_string).unwrap();
 
-        Ok(covid_19_data)
+        covid_19_data
     }
 }

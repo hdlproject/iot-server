@@ -1,15 +1,7 @@
-[package]
-name = "rust-simple-webserver"
-version = "0.1.0"
-authors = ["Hendra Danu Laksana <hdl.project.co@gmail.com>"]
-edition = "2018"
+[workspace]
+members = [
+    "account-manager",
+    "covid19"
+]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
-[dependencies]
-actix-web = { version = "3", features = ["openssl"] }
-lazy_static = "1.4.0"
-openssl = "0.10.28"
-serde = { version = "1.0", features = ["derive"] }
-serde_json = "1.0"
-futures = "0.3.1"
