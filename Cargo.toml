@@ -1,6 +1,6 @@
 [workspace]
 members = [
-    "account-manager",
+    "iot-manager",
     "general"
 ]
 
