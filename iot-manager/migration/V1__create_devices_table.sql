@@ -1,0 +1,6 @@
+CREATE TABLE devices
+(
+    id  VARCHAR PRIMARY KEY,
+    lon VARCHAR NOT NULL,
+    lat VARCHAR NOT NULL
+)
