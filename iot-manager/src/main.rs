@@ -1,4 +1,5 @@
 mod config;
+mod device;
 
 use std::process;
 use actix_web::{HttpServer, App, get, Responder, HttpResponse};
@@ -13,6 +14,7 @@ async fn main() -> std::io::Result<()> {
     HttpServer::new(|| {
         App::new()
             .service(health_check)
+            .service(device::presenter::create)
     })
         .bind(format!("0.0.0.0:{}", &config::CONFIG.port)).
         unwrap_or_else(|e| {
