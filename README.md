@@ -23,19 +23,23 @@ Here is the necessary config to run thus project
 - OPENAI_API_KEY=<open api key>
 - POSTGRES_URL=postgres://admin:admin@localhost:5432/iot-manager
 
-## How to Run
-### Cargo
-```shell script
-$ <set all necessary env vars> cargo run
+## How to Operate
+### Migrate Database
+```shell
+$ cargo run --bin tool migrate-database --dsn=postgres://admin:admin@localhost:5432/iot-manager
 ```
-### Docker
+### Run Web Server
 ```shell script
-$ docker build -t rust-simple-webserver .
+$ <set all necessary env vars> cargo run -- bin <package name>
+```
+### Run Web Server using Docker
+```shell script
+$ docker build -t general .
 $ docker run \
   -e OPENAI_API_URL="https://api.openai.com" \
   -e OPENAI_API_KEY="<openai api key>" \
   -p 8080:8080 \
-  rust-simple-webserver
+  general
 ```
 
 ## Log
@@ -89,4 +93,4 @@ $ docker run \
 ```
 
 ## TODO
-- Refactor `tool` to support multiple commands
+- 
