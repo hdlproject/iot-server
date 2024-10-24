@@ -15,6 +15,7 @@ async fn main() -> std::io::Result<()> {
         App::new()
             .service(health_check)
             .service(device::presenter::create)
+            .service(device::presenter::get)
     })
         .bind(format!("0.0.0.0:{}", &config::CONFIG.port)).
         unwrap_or_else(|e| {
