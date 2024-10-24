@@ -7,4 +7,5 @@ edition = "2021"
 
 [dependencies]
 postgres = "0.19.9"
-refinery = { version = "0.8", features = ["postgres"]}
+refinery = { version = "0.8", features = ["postgres"] }
+clap = { version = "4.0", features = ["derive"] }
