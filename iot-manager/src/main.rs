@@ -1,5 +1,6 @@
 mod config;
 mod device;
+mod sensor;
 
 use std::process;
 use actix_web::{HttpServer, App, get, Responder, HttpResponse};
@@ -16,6 +17,8 @@ async fn main() -> std::io::Result<()> {
             .service(health_check)
             .service(device::presenter::create)
             .service(device::presenter::get)
+            .service(sensor::presenter::create)
+            .service(sensor::presenter::get)
     })
         .bind(format!("0.0.0.0:{}", &config::CONFIG.port)).
         unwrap_or_else(|e| {

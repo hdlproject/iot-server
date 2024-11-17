@@ -1,3 +1,3 @@
 pub mod presenter;
-mod model;
+pub mod model;
 mod model_test;

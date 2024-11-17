@@ -12,7 +12,7 @@ impl Config {
     pub fn new() -> Config {
         Self {
             port: env::var("PORT")
-                .unwrap_or_else(|_| String::from("8080")),
+                .unwrap_or_else(|_| String::from("8081")),
             openai_api_url: env::var("OPENAI_API_URL")
                 .unwrap_or_else(|e| {
                     println!("OPENAI_API_URL env var is missing {}", e);

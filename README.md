@@ -34,12 +34,19 @@ $ <set all necessary env vars> cargo run -- bin <package name>
 ```
 ### Run Web Server using Docker
 ```shell script
-$ docker build -t general .
+$ docker build --build-arg APP_NAME=general -t general .
 $ docker run \
   -e OPENAI_API_URL="https://api.openai.com" \
   -e OPENAI_API_KEY="<openai api key>" \
-  -p 8080:8080 \
+  -p 8081:8081 \
   general
+
+$ docker build --build-arg APP_NAME=iot-manager -t iot-manager .
+$ docker run \
+  -e POSTGRES_URL="postgres://admin:admin@host.docker.internal:5433/iot-manager" \
+  -e GENERAL_SERVICE_URL="host.docker.internal:8081" \
+  -p 8082:8082 \
+  iot-manager
 ```
 
 ## Log

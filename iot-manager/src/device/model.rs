@@ -1,5 +1,6 @@
 use tokio_postgres::{Client, NoTls, Error};
 
+#[derive(Debug)]
 pub struct Device {
     pub id: String,
     pub lon: f64,

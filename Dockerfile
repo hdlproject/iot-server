@@ -1,8 +1,12 @@
-FROM rust:1.48
+FROM rust:1.82
+
+ARG APP_NAME
 
 WORKDIR /usr/src/iot-server
 COPY . .
 
-RUN cargo install --path general
+RUN cargo install --path ${APP_NAME}
 
-CMD ["general"]
+RUN mv /usr/local/cargo/bin/${APP_NAME} /usr/local/cargo/bin/app
+
+CMD ["app"]

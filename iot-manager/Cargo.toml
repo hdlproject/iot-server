@@ -7,6 +7,7 @@ edition = "2021"
 
 [dependencies]
 actix-web = { version = "4" }
+awc = { version = "3" }
 postgres = "0.19.9"
 lazy_static = "1.4.0"
 tokio = { version = "1.41.0", features = ["full"] }
